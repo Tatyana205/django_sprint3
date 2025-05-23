@@ -24,7 +24,7 @@ class Category(models.Model):
         unique=True,
         blank=False,
         verbose_name='Идентификатор',
-        help_text=t1
+        help_text=t1+t2
     )
     is_published = models.BooleanField(
         default=True,
@@ -79,7 +79,7 @@ class Post(models.Model):
     pub_date = models.DateTimeField(
         blank=False,
         verbose_name='Дата и время публикации',
-        help_text=t2
+        help_text=t3+t4
     )
     author = models.ForeignKey(
         User,
