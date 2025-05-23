@@ -4,8 +4,11 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-t1 = 'Идентификатор страницы для URL; разрешены символы латиницы, цифры, дефис и подчёркивание.'
-t2 = 'Если установить дату и время в будущем — можно делать отложенные публикации.'
+t1 = 'Идентификатор страницы для URL; разрешены символы '
+t2 = 'латиницы, цифры, дефис и подчёркивание.'
+t3 = 'Если установить дату и время в будущем — можно '
+t4 = 'делать отложенные публикации.'
+
 
 class Category(models.Model):
     title = models.CharField(
@@ -17,7 +20,8 @@ class Category(models.Model):
         blank=False,
         verbose_name='Описание'
     )
-    slug = models.SlugField(unique=True,
+    slug = models.SlugField(
+        unique=True,
         blank=False,
         verbose_name='Идентификатор',
         help_text=t1
