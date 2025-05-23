@@ -4,6 +4,8 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+t1 = 'Идентификатор страницы для URL; разрешены символы латиницы, цифры, дефис и подчёркивание.'
+t2 = 'Если установить дату и время в будущем — можно делать отложенные публикации.'
 
 class Category(models.Model):
     title = models.CharField(
@@ -18,8 +20,7 @@ class Category(models.Model):
     slug = models.SlugField(unique=True,
         blank=False,
         verbose_name='Идентификатор',
-        help_text='Идентификатор страницы для URL; ' \
-        'разрешены символы латиницы, цифры, дефис и подчёркивание.'
+        help_text=t1
     )
     is_published = models.BooleanField(
         default=True,
@@ -74,8 +75,7 @@ class Post(models.Model):
     pub_date = models.DateTimeField(
         blank=False,
         verbose_name='Дата и время публикации',
-        help_text='Если установить дату и время ' \
-        'в будущем — можно делать отложенные публикации.'
+        help_text=t2
     )
     author = models.ForeignKey(
         User,
